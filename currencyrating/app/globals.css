@@ -1,0 +1,49 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* CurrencyRating Design Tokens */
+:root {
+  /* Light theme (default) */
+  --cr-bg: #ffffff; /* white */
+  --cr-surface: #f1f5f9; /* slate-100 */
+  --cr-card: #ffffff;
+  --cr-text: #0f172a; /* slate-900 */
+  --cr-muted: #475569; /* slate-600 */
+  --cr-accent: #38BDF8; /* sky-400 */
+  --cr-success: #34D399; /* emerald-400 */
+  --cr-danger: #F87171; /* red-400 */
+  --cr-border: #e5e7eb; /* gray-200 */
+}
+
+/* Dark theme overrides */
+.dark {
+  color-scheme: dark;
+  --cr-bg: #0B1220; /* rich navy */
+  --cr-surface: #0F172A; /* slate surface */
+  --cr-card: #111827;
+  --cr-text: #E5E7EB;
+  --cr-muted: #94A3B8;
+  --cr-accent: #38BDF8;
+  --cr-success: #34D399;
+  --cr-danger: #F87171;
+  --cr-border: #1F2937;
+}
+
+/* Ensure form controls follow theme */
+html { color-scheme: light; }
+
+@layer base {
+  * { @apply border-border; }
+  body {
+    @apply bg-background text-text antialiased; 
+  }
+}
+
+/* Utilities */
+@layer utilities {
+  .text-balance { text-wrap: balance; }
+  .font-tabular { font-variant-numeric: tabular-nums; }
+  .cr-card { @apply rounded-2xl shadow-lg shadow-black/20 border bg-card border-[var(--cr-border)]; }
+  .cr-btn { @apply rounded-xl px-3 py-2 transition-all duration-200 ease-out hover:ring-1 hover:ring-[var(--cr-accent)]; }
+}
